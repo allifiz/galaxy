@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Unbounded", "Space Grotesk", sans-serif;
+  --font-body: "Space Grotesk", ui-sans-serif, sans-serif;
+
+  --color-void: #05070f;
+  --color-abyss: #090e1f;
+  --color-hull: #0b1226;
+  --color-hull-2: #101a36;
+  --color-frost: #e9eefb;
+  --color-mist: #8fa3c8;
+  --color-ember: #ffb547;
+  --color-ember-deep: #ff8a3d;
+  --color-ice: #7fd8e8;
+
+  --animate-rise: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-rise-slow: rise 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-panel-in: panel-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-hint-pulse: hint-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes hint-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-4px);
+  }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-void);
+  color: var(--color-frost);
+  font-family: var(--font-body);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(255, 181, 71, 0.35);
+  color: #fff7e6;
+}
+
+/* thin custom scrollbar for the dossier panel */
+.scroll-slim::-webkit-scrollbar {
+  width: 5px;
+}
+.scroll-slim::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scroll-slim::-webkit-scrollbar-thumb {
+  background: rgba(143, 163, 200, 0.25);
+  border-radius: 999px;
+}
+
+kbd {
+  font-family: var(--font-body);
+}
